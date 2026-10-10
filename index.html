@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhiraj | The Truth Seeker [J.A.R.V.I.S Protocol]</title>
+    <title>अभिराज कुमार विश्वकर्मा | आधिकारिक परिचय</title>
     <style>
         :root {
             --neon-cyan: #00f3ff;
             --neon-blue: #0ea5e9;
             --hud-bg: #030712;
-            --panel-bg: rgba(10, 25, 47, 0.75);
-            --panel-border: rgba(0, 243, 255, 0.35);
-            --text-glow: rgba(0, 243, 255, 0.6);
+            --panel-bg: rgba(10, 25, 47, 0.85);
+            --panel-border: rgba(0, 243, 255, 0.4);
+            --text-glow: rgba(0, 243, 255, 0.7);
             --text-primary: #e0f2fe;
             --text-muted: #94a3b8;
             --alert-glow: #38bdf8;
+            --success-green: #10b981;
         }
 
         * {
@@ -22,35 +23,35 @@
             margin: 0;
             padding: 0;
             font-family: 'Courier New', 'Segoe UI', monospace, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--hud-bg);
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
-                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 30px 30px, 30px 30px;
+                radial-gradient(circle at 50% 15%, rgba(14, 165, 233, 0.18) 0%, transparent 65%),
+                linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 25px 25px, 25px 25px;
             color: var(--text-primary);
             line-height: 1.6;
-            padding-bottom: 60px;
+            padding-bottom: 70px;
         }
 
-        /* Top HUD Status */
         .hud-status-bar {
-            background: rgba(3, 7, 18, 0.95);
+            background: rgba(3, 7, 18, 0.96);
             border-bottom: 1px solid var(--panel-border);
-            padding: 8px 16px;
+            padding: 10px 16px;
             font-size: 11px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: var(--neon-cyan);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
         }
 
         .status-pulse {
@@ -61,22 +62,20 @@
             border-radius: 50%;
             margin-right: 6px;
             box-shadow: 0 0 10px var(--neon-cyan);
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.4s infinite;
         }
 
         @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .container {
             max-width: 650px;
-            margin: 20px auto;
+            margin: 16px auto;
             padding: 0 16px;
         }
 
-        /* Language Hub */
         .lang-module {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
@@ -84,16 +83,14 @@
             padding: 10px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.08);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
         }
         .lang-title {
             font-size: 11px;
             color: var(--neon-cyan);
             margin-bottom: 6px;
             letter-spacing: 1.5px;
-        }
-        #google_translate_element {
-            margin-top: 4px;
+            font-weight: bold;
         }
 
         /* Hero Avatar HUD */
@@ -101,43 +98,68 @@
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 16px;
-            padding: 30px 20px;
+            padding: 26px 16px;
             text-align: center;
             position: relative;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
-            margin-bottom: 24px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.18);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .arc-core-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 16px;
         }
 
         .arc-core {
             width: 100px;
             height: 100px;
-            margin: 0 auto 16px;
             border-radius: 50%;
             border: 2px dashed var(--neon-cyan);
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4), inset 0 0 15px rgba(0, 243, 255, 0.25);
+            transition: all 0.3s ease;
             position: relative;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3), inset 0 0 15px rgba(0, 243, 255, 0.2);
+            z-index: 2;
+        }
+
+        .shockwave {
+            position: absolute;
+            top: 0; left: 0; width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-cyan);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes waveAnimation {
+            0% { transform: scale(1); opacity: 1; border-color: var(--neon-cyan); }
+            100% { transform: scale(2.2); opacity: 0; border-color: var(--neon-blue); }
         }
 
         .arc-core-inner {
-            width: 70px;
-            height: 70px;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,243,255,0.4) 0%, rgba(14,165,233,0.1) 70%);
+            background: radial-gradient(circle, rgba(0,243,255,0.45) 0%, rgba(14,165,233,0.15) 75%);
             border: 1px solid var(--neon-cyan);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             color: #ffffff;
-            text-shadow: 0 0 10px var(--neon-cyan);
+            text-shadow: 0 0 12px var(--neon-cyan);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -147,12 +169,13 @@
 
         .codename {
             color: var(--neon-cyan);
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1.5px;
             margin-bottom: 14px;
             text-transform: uppercase;
         }
 
+        /* Interactive Badges */
         .badge-grid {
             display: flex;
             flex-wrap: wrap;
@@ -161,37 +184,40 @@
             margin-top: 10px;
         }
 
-        .hud-badge {
+        .hud-badge-btn {
             background: rgba(0, 243, 255, 0.08);
             border: 1px solid var(--panel-border);
             color: var(--neon-cyan);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
             font-size: 11px;
-            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+        .hud-badge-btn:hover, .hud-badge-btn:active {
+            background: var(--neon-cyan);
+            color: #030712;
+            box-shadow: 0 0 15px var(--neon-cyan);
         }
 
         .motto-badge {
-            background: rgba(14, 165, 233, 0.2);
-            border: 1px solid var(--alert-glow);
-            color: #ffffff;
+            border-color: var(--alert-glow);
             font-weight: bold;
-            box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
         }
 
-        /* Panels */
+        /* HUD Panels */
         .hud-panel {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .panel-header {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             color: var(--neon-cyan);
             letter-spacing: 1.5px;
@@ -199,9 +225,6 @@
             border-bottom: 1px solid var(--panel-border);
             padding-bottom: 8px;
             margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .info-row {
@@ -217,61 +240,85 @@
             text-transform: uppercase;
         }
 
-        /* Matrix Grids */
+        /* Interactive Matrix Cards */
         .matrix-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-        .matrix-cell {
-            background: rgba(3, 7, 18, 0.6);
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            padding: 10px;
+        .matrix-btn {
+            background: rgba(3, 7, 18, 0.7);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            padding: 12px 10px;
             border-radius: 6px;
             font-size: 12px;
+            color: var(--text-primary);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .matrix-cell strong {
+        .matrix-btn:hover, .matrix-btn:active {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        .matrix-btn strong {
             color: var(--neon-cyan);
             display: block;
             margin-bottom: 4px;
+            font-size: 12px;
         }
 
-        /* Classified Vault / Riddle */
+        /* Simple Riddle & Multiple Choice Vault */
         .vault-box {
-            background: rgba(5, 15, 30, 0.9);
+            background: rgba(4, 13, 28, 0.9);
             border: 1px dashed var(--neon-cyan);
             border-radius: 8px;
-            padding: 18px;
+            padding: 16px;
             text-align: center;
         }
         .riddle-text {
             font-size: 13px;
-            color: #cbd5e1;
-            font-style: italic;
-            line-height: 1.8;
+            color: #ffffff;
+            line-height: 1.7;
             margin: 12px 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             padding: 12px;
-            border-left: 2px solid var(--neon-cyan);
+            border-left: 3px solid var(--neon-cyan);
             text-align: left;
         }
-        .decrypt-btn {
-            background: transparent;
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 10px 20px;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
-            transition: all 0.3s ease;
+
+        .riddle-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-bottom: 14px;
+            text-align: left;
         }
-        .decrypt-btn:hover {
-            background: var(--neon-cyan);
-            color: #030712;
-            box-shadow: 0 0 20px var(--neon-cyan);
+        .option-btn {
+            background: rgba(3, 7, 18, 0.8);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
+        }
+        .option-btn.correct {
+            border-color: var(--success-green);
+            background: rgba(16, 185, 129, 0.2);
+            color: #a7f3d0;
+            font-weight: bold;
+        }
+        .option-btn.wrong {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
         }
 
         .classified-content {
@@ -280,7 +327,13 @@
             text-align: left;
             border-top: 1px solid var(--panel-border);
             padding-top: 16px;
+            animation: fadeIn 0.4s ease-in;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .draft-item {
             background: rgba(3, 7, 18, 0.7);
             border-left: 3px solid var(--neon-blue);
@@ -292,10 +345,53 @@
         .draft-item strong {
             color: #ffffff;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
-        /* Safe Comms Buttons */
+        /* PDF & Research Downloads */
+        .doc-card {
+            background: rgba(3, 7, 18, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .doc-info {
+            font-size: 12px;
+            text-align: left;
+        }
+        .doc-info strong {
+            color: #ffffff;
+            display: block;
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+        .doc-tag {
+            color: var(--neon-cyan);
+            font-size: 11px;
+        }
+        .doc-action-btn {
+            background: rgba(14, 165, 233, 0.15);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .doc-action-btn:hover {
+            background: var(--neon-cyan);
+            color: #030712;
+        }
+
+        /* Share & Comms Portals */
         .comms-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -305,14 +401,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             padding: 12px;
             text-decoration: none;
             border-radius: 6px;
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
-            text-transform: uppercase;
             transition: 0.3s;
         }
         .x-btn {
@@ -330,9 +424,60 @@
             border: 1px solid #60a5fa;
             color: #60a5fa;
         }
-        .comm-portal-btn:hover {
-            box-shadow: 0 0 15px currentColor;
-            transform: translateY(-2px);
+        .share-btn {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            color: #10b981;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Typewriter HUD Modal */
+        .hud-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #091322;
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 480px;
+            width: 100%;
+            text-align: left;
+        }
+        .modal-header {
+            color: var(--neon-cyan);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 6px;
+        }
+        .modal-body {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            min-height: 70px;
+            margin-bottom: 16px;
+        }
+        .modal-close-btn {
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 6px 16px;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
         }
 
         footer {
@@ -346,15 +491,16 @@
 </head>
 <body>
 
-    <!-- HUD Status Bar -->
+    <!-- HUD Status -->
     <div class="hud-status-bar">
         <div><span class="status-pulse"></span>SYSTEM STATUS: ONLINE</div>
-        <div>JARVIS-HUD // V4.1</div>
+        <div id="liveClock">00:00:00 UTC</div>
+        <div>PROTOCOL CORE // V4.3</div>
     </div>
 
     <div class="container">
 
-        <!-- 22 Indian Languages Neural Hub -->
+        <!-- 22 Languages Hub -->
         <div class="lang-module">
             <div class="lang-title">🌐 22 INDIAN LANGUAGES // NEURAL TRANSLATOR</div>
             <div id="google_translate_element"></div>
@@ -362,20 +508,30 @@
 
         <!-- Profile Core HUD -->
         <div class="hero-panel">
-            <div class="arc-core">
-                <div class="arc-core-inner">अ</div>
+            <div class="arc-core-wrapper">
+                <div class="shockwave" id="shockwave"></div>
+                <div class="arc-core" onclick="triggerCorePulse()">
+                    <div class="arc-core-inner">अ</div>
+                </div>
             </div>
             <h1>अभिराज कुमार विश्वकर्मा</h1>
-            <div class="codename">Operative: The Truth Seeker</div>
+            <div class="codename">The Truth Seeker</div>
 
+            <!-- Clickable Badges -->
             <div class="badge-grid">
-                <span class="hud-badge motto-badge">अशक्यस्य प्रेक्षाम् कुरु</span>
-                <span class="hud-badge">राष्ट्र सर्वोपरि • भारत प्रथम</span>
-                <span class="hud-badge">मालिक प्रजा नहीं बनता</span>
+                <button class="hud-badge-btn motto-badge" onclick="typewriterModal('आदर्श वाक्य : अशक्यस्य प्रेक्षाम् कुरु', 'अर्थ: असंभव की खोज करो (Demand the Impossible)। जो मार्ग साधारण व्यक्ति छोड़ देते हैं, तार्किक विवेक व सत्यनिष्ठा से उसी असाध्य चुनौती का समाधान निकालना हमारा मूल संकल्प है।')">
+                    अशक्यस्य प्रेक्षाम् कुरु ⓘ
+                </button>
+                <button class="hud-badge-btn" onclick="typewriterModal('राष्ट्रीय विजन : राष्ट्र सर्वोपरि', 'सर्वोपरि भारत प्रथम। व्यक्तिगत स्वार्थ, दलगत राजनीति या संकीर्ण सीमाओं से ऊपर केवल एक निष्ठा—भारत की संप्रभुता, अखंडता और प्रत्येक नागरिक का स्वाभिमान।')">
+                    राष्ट्र सर्वोपरि • भारत प्रथम ⓘ
+                </button>
+                <button class="hud-badge-btn" onclick="typewriterModal('मूल सिद्धांत : सत्यमेव जयते', 'सत्य की ही विजय होती है। संपूर्ण स्वावलंबन और व्यवस्था परिवर्तन केवल तब संभव है जब नागरिक जागरूक होकर प्रशासनिक व वैधानिक सुधारों की बागडोर अपने हाथों में लें।')">
+                    सत्यमेव जयते • पूर्ण स्वावलंबन ⓘ
+                </button>
             </div>
         </div>
 
-        <!-- Academic & Focus Blueprint -->
+        <!-- Profile Telemetry -->
         <div class="hud-panel">
             <div class="panel-header">◈ PROFILE TELEMETRY & FOCUS</div>
             <div class="info-row">
@@ -389,125 +545,39 @@
             </div>
         </div>
 
-        <!-- Analytical Matrix -->
+        <!-- Interactive Skills Matrix -->
         <div class="hud-panel">
-            <div class="panel-header">◈ TACTICAL SKILLS & REASONING MATRIX</div>
+            <div class="panel-header">◈ TACTICAL SKILLS & REASONING (टैप करें)</div>
             <div class="matrix-grid">
-                <div class="matrix-cell">
-                    <strong>पार्श्व सोच व समस्या समाधान</strong>
+                <div class="matrix-btn" onclick="typewriterModal('पार्श्व सोच व समस्या समाधान', 'सीधी लकीर से हटकर जटिल समस्याओं के अदृश्य कोणों को पहचानना। पारंपरिक प्रशासनिक व सामाजिक गतिरोधों का गैर-पारंपरिक और तार्किक समाधान निकालना।')">
+                    <strong>पार्श्व सोच ➔</strong>
                     Lateral Thinking & Tactical Problem Solving
                 </div>
-                <div class="matrix-cell">
-                    <strong>शासन व वैधानिक विश्लेषण</strong>
-                    Governance & Constitutional Structural Analysis
+                <div class="matrix-btn" onclick="typewriterModal('शासन व वैधानिक विश्लेषण', 'संवैधानिक प्रावधानों, प्रशासनिक प्रक्रियाओं, गजट अधिसूचनाओं तथा जनहित कानूनों का गहन तुलनात्मक व व्यावहारिक अध्ययन।')">
+                    <strong>वैधानिक विश्लेषण ➔</strong>
+                    Governance & Constitutional Analysis
                 </div>
-                <div class="matrix-cell">
-                    <strong>व्यावहारिक अंकगणित</strong>
-                    Practical Calculations & Logical Reasoning
+                <div class="matrix-btn" onclick="typewriterModal('व्यावहारिक अंकगणित व तार्किकता', 'जटिल सामाजिक-आर्थिक आंकड़ों, कर प्रणाली (GST/Tax), मुद्रा प्रवाह एवं तार्किक गणनाओं का यथार्थवादी विश्लेषण।')">
+                    <strong>व्यावहारिक अंकगणित ➔</strong>
+                    Practical Calculations & Reasoning
                 </div>
-                <div class="matrix-cell">
-                    <strong>कार्यालय अनुप्रयोग</strong>
+                <div class="matrix-btn" onclick="typewriterModal('कार्यालय अनुप्रयोग प्रबंधन', 'माइक्रोसॉफ्ट वर्ड और एक्सेल का व्यावहारिक उपयोग—ड्राफ्टिंग, रिकॉर्ड संकलन, डेटा शीट प्रबंधन एवं सुव्यवस्थित रिपोर्टिंग।')">
+                    <strong>एमएस ऑफिस अनुप्रयोग ➔</strong>
                     MS Office Suite [Word & Excel Practical Management]
                 </div>
             </div>
         </div>
 
-        <!-- The Classified Vault / Riddle -->
+        <!-- Simple Interactive Riddle / Vault -->
         <div class="hud-panel">
-            <div class="panel-header">🔒 CLASSIFIED INQUIRY: PROTOCOL-ZERO</div>
+            <div class="panel-header">🔒 INTELLECTUAL GATEWAY: SYSTEM CIPHER</div>
             <div class="vault-box">
-                <p style="font-size: 11px; color: var(--neon-cyan); letter-spacing: 1px;">// INTELLECTUAL GATEWAY</p>
+                <p style="font-size: 11px; color: var(--neon-cyan); letter-spacing: 1px;">// तार्किक प्रश्न (सही उत्तर चुनकर आर्काइव अनलॉक करें)</p>
                 <div class="riddle-text">
-                    "जो मुकुट पहनाता है, वही जंजीरों में क्यों बंधता है?<br>
-                    जब निर्णय देने वाला स्वयं मूक दर्शक बन जाए, तो सत्ता किसके हाथ में होती है—हस्ताक्षर करने वाले के, या मुहर लगाने वाले के?<br>
-                    वह कौन सी अज्ञात व्यवस्था है जो 'मालिक' और 'सेवक' की सीमाओं को सही स्थान पर स्थापित करती है?"
+                    "लोकतंत्र में यदि कोई चुना हुआ जनप्रतिनिधि जनहित और वादों के विपरीत कार्य करने लगे, तो उसे बदलने की अंतिम शक्ति किसके हाथ में होनी चाहिए?"
                 </div>
-                <button class="decrypt-btn" onclick="toggleVault()">[ डिक्रिप्ट करें // DECRYPT ARCHIVE ]</button>
 
-                <div class="classified-content" id="vaultContent">
-                    <p style="color: var(--neon-cyan); font-size: 12px; margin-bottom: 12px; font-weight: bold;">
-                        [ARCHIVE ACCESS GRANTED] ➔ 35 वैधानिक गजट ड्राफ्ट्स (राहुल चिमनभाई मेहता विजन):
-                    </p>
-
-                    <div class="draft-item">
-                        <strong>1. वोट वापसी पासबुक (VVP) एवं सकारात्मक रिकॉल</strong>
-                        पटवारी कार्यालय व SMS द्वारा नागरिक स्वीकृति; केवल कुर्सी खाली करने का नकारात्मक कानून नहीं, बल्कि नया योग्य प्रतिनिधि चुनने का सकारात्मक अधिकार[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)।
-                    </div>
-
-                    <div class="draft-item">
-                        <strong>2. हॉर्स-ट्रेडिंग (विधायक नीलामी) पर पूर्ण वीटो</strong>
-                        जनमत-आधारित मुख्यमंत्री व अधिकारी चयन। विधायक जनता के मत की सौदेबाजी नहीं कर सकेंगे[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)।
-                    </div>
-
-                    <div class="draft-item">
-                        <strong>3. नागरिक जूरी कोर्ट प्रणाली (Jury Trial System)</strong>
-                        अदालतों में मुकदमों के दशकों तक लटकने का अंत। आम नागरिकों की रैंडम जूरी द्वारा त्वरित व पारदर्शी न्याय व्यवस्था[span_8](start_span)[span_8](end_span)।
-                    </div>
-
-                    <div class="draft-item">
-                        <strong>4. स्वदेशी सुरक्षा, WOIC व आर्थिक संप्रभुता</strong>
-                        GST समाप्ति, रिक्त भूमि कर (Unused Land Tax) तथा संवेदनशील क्षेत्रों में बहुराष्ट्रीय कंपनियों (FDI) के एकाधिकार व डॉलर पुनर्भरण संकट से देश की सुरक्षा[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)।
-                    </div>
-
-                    <div class="draft-item">
-                        <strong>5. खनिज मुनाफा बंटवारा व प्रत्यक्ष शपथपत्र (TCP)</strong>
-                        खनिज रॉयल्टी का 65% हिस्सा प्रत्येक भारतीय नागरिक को समान रूप से और 35% सेना को, जिससे राष्ट्रीय सुरक्षा व आर्थिक मजबूती सुनिश्चित हो[span_14](start_span)[span_14](end_span)।
-                    </div>
-
-                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;">
-                        *सम्पूर्ण 35 गजट ड्राफ्ट्स एवं समाधान संग्रह: Right to Recall Party (RRPIndia.in)[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Secure Comms Portals -->
-        <div class="hud-panel">
-            <div class="panel-header">📡 SECURE COMMS // VERIFIED PORTALS</div>
-            <div class="comms-grid">
-                <a href="https://x.com/Abhiraj_RRP" target="_blank" class="comm-portal-btn x-btn">
-                    <span>X (TWITTER) ➔ @Abhiraj_RRP</span>
-                </a>
-                <a href="https://www.instagram.com/avirajkumar893?obrf=MjQwcTBuYTNpbXZk" target="_blank" class="comm-portal-btn insta-btn">
-                    <span>INSTAGRAM ➔ @avirajkumar893</span>
-                </a>
-                <a href="https://www.facebook.com/share/1CKckuvSM2/" target="_blank" class="comm-portal-btn fb-btn">
-                    <span>FACEBOOK PORTAL ➔ CONNECT</span>
-                </a>
-            </div>
-        </div>
-
-        <footer>
-            // SYSTEM ENCRYPTED // ARCHIVE 2026<br>
-            राष्ट्र सर्वोपरि • अशक्यस्य प्रेक्षाम् कुरु
-        </footer>
-
-    </div>
-
-    <!-- Interactive Vault Script -->
-    <script>
-        function toggleVault() {
-            var vault = document.getElementById("vaultContent");
-            if (vault.style.display === "block") {
-                vault.style.display = "none";
-            } else {
-                vault.style.display = "block";
-            }
-        }
-    </script>
-
-    <!-- Google 22 Indian Languages Translation Engine -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'hi',
-                includedLanguages: 'hi,en,bn,te,ta,mr,gu,kn,ml,pa,or,as,ur,ne,sd,sa,mai,ks,doi,kok,brx,mni',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-    </html>
-    
+                <div class="riddle-options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">A. केवल 5 वर्ष बाद राजनीतिक पार्टी की मर्जी पर</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">B. बहुराष्ट्रीय कंपनियों और विदेशी सलाहकारों पर</button>
+                    <butt
