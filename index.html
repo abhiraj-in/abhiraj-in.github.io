@@ -3,87 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अभिराज | आधिकारिक परिचय व पोर्टफोलियो</title>
+    <title>Abhiraj | The Truth Seeker [J.A.R.V.I.S Protocol]</title>
     <style>
         :root {
-            --primary: #38bdf8;
-            --accent: #0ea5e9;
-            --bg: #0b0f19;
-            --card-bg: #111827;
-            --card-border: #1f2937;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --neon-cyan: #00f3ff;
+            --neon-blue: #0ea5e9;
+            --hud-bg: #030712;
+            --panel-bg: rgba(10, 25, 47, 0.75);
+            --panel-border: rgba(0, 243, 255, 0.35);
+            --text-glow: rgba(0, 243, 255, 0.6);
+            --text-primary: #e0f2fe;
+            --text-muted: #94a3b8;
+            --alert-glow: #38bdf8;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding-bottom: 40px; }
-        .navbar { background: rgba(17, 24, 39, 0.9); border-bottom: 1px solid var(--card-border); padding: 14px 20px; text-align: center; font-weight: 700; color: var(--primary); letter-spacing: 1px; position: sticky; top: 0; z-index: 10; }
-        .container { max-width: 600px; margin: 20px auto; padding: 0 16px; }
-        .profile-hero { background: linear-gradient(145deg, #1e293b, #0f172a); border-radius: 20px; padding: 30px 20px; text-align: center; border: 1px solid #334155; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 24px; }
-        .avatar-circle { width: 86px; height: 86px; margin: 0 auto 15px; background: linear-gradient(135deg, #38bdf8, #0284c7); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: bold; color: #0f172a; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
-        h1 { font-size: 26px; color: #ffffff; margin-bottom: 6px; }
-        .tagline { color: var(--primary); font-size: 14px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; }
-        .badge-bar { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .badge { background: rgba(56, 189, 248, 0.12); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-        .section-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .section-title { font-size: 18px; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 8px; }
-        p.desc { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
-        .policy-item { background: #1a2234; border-left: 4px solid var(--primary); padding: 12px 14px; border-radius: 0 8px 8px 0; margin-bottom: 10px; }
-        .policy-item strong { display: block; color: #f1f5f9; font-size: 14px; margin-bottom: 3px; }
-        .policy-item span { color: var(--text-muted); font-size: 13px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .skill-box { background: #1a2234; padding: 12px; border-radius: 10px; border: 1px solid #2d3748; font-size: 13px; color: #e2e8f0; text-align: center; }
-        .skill-box span { display: block; color: var(--primary); font-weight: bold; font-size: 15px; margin-bottom: 2px; }
-        .contact-btn { display: block; background: linear-gradient(135deg, #0284c7, #0369a1); color: white; text-decoration: none; padding: 14px; text-align: center; border-radius: 12px; font-weight: bold; font-size: 15px; margin-top: 15px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); }
-        footer { text-align: center; color: #6b7280; font-size: 12px; margin-top: 25px; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', 'Segoe UI', monospace, sans-serif;
+        }
+
+        body {
+            background-color: var(--hud-bg);
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Top HUD Status */
+        .hud-status-bar {
+            background: rgba(3, 7, 18, 0.95);
+            border-bottom: 1px solid var(--panel-border);
+            padding: 8px 16px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--neon-cyan);
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 243, 255, 0.1);
+        }
+
+        .status-pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 10px var(--neon-cyan);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        /* Language Hub */
+        .lang-module {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.08);
+        }
+        .lang-title {
+            font-size: 11px;
+            color: var(--neon-cyan);
+            margin-bottom: 6px;
+            letter-spacing: 1.5px;
+        }
+        #google_translate_element {
+            margin-top: 4px;
+        }
+
+        /* Hero Avatar HUD */
+        .hero-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
+            margin-bottom: 24px;
+        }
+
+        .arc-core {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            border: 2px dashed var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3), inset 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .arc-core-inner {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,243,255,0.4) 0%, rgba(14,165,233,0.1) 70%);
+            border: 1px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px var(--text-glow);
+            margin-bottom: 4px;
+        }
+
+        .codename {
+            color: var(--neon-cyan);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .hud-badge {
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid var(--panel-border);
+            color: var(--neon-cyan);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .motto-badge {
+            background: rgba(14, 165, 233, 0.2);
+            border: 1px solid var(--alert-glow);
+            color: #ffffff;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Panels */
+        .hud-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .panel-header {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-row {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+        .info-label {
+            color: var(--neon-blue);
+            font-weight: bold;
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Matrix Grids */
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .matrix-cell {
+            background: rgba(3, 7, 18, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        .matrix-cell strong {
+            color: var(--neon-cyan);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Classified Vault / Riddle */
+        .vault-box {
+            background: rgba(5, 15, 30, 0.9);
+            border: 1px dashed var(--neon-cyan);
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+        .riddle-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 12px 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px;
+            border-left: 2px solid var(--neon-cyan);
+            text-align: left;
+        }
+        .decrypt-btn {
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .decrypt-btn:hover {
+            background: var(--neon-cyan);
+            color: #030712;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .classified-content {
+            display: none;
+            margin-top: 16px;
+            text-align: left;
+            border-top: 1px solid var(--panel-border);
+            padding-top: 16px;
+        }
+        .draft-item {
+            background: rgba(3, 7, 18, 0.7);
+            border-left: 3px solid var(--neon-blue);
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            border-radius: 0 6px 6px 0;
+            font-size: 12px;
+        }
+        .draft-item strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Safe Comms Buttons */
+        .comms-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .comm-portal-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .x-btn {
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+        .insta-btn {
+            background: rgba(236, 72, 153, 0.1);
+            border: 1px solid #f43f5e;
+            color: #f43f5e;
+        }
+        .fb-btn {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #60a5fa;
+            color: #60a5fa;
+        }
+        .comm-portal-btn:hover {
+            box-shadow: 0 0 15px currentColor;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
-    <div class="navbar">ABHIRAJ • OFFICIAL</div>
-    <div class="container">
-        <div class="profile-hero">
-            <div class="avatar-circle">अ</div>
-            <h1>अभिराज</h1>
-            <div class="tagline">नागरिक अधिकार समर्थक • तकनीकी अध्येता</div>
-            <div class="badge-bar">
-                <span class="badge">राइट टू रिकॉल</span>
-                <span class="badge">वोट वापसी कानून</span>
-                <span class="badge">वेब डेवलपर</span>
-            </div>
-        </div>
-        <div class="section-card">
-            <div class="section-title">📌 व्यक्तिगत परिचय</div>
-            <p class="desc">मैं व्यवस्था परिवर्तन, पारदर्शी शासन और नागरिक अधिकारों के सशक्तिकरण के प्रति समर्पित हूँ। मेरा मानना है कि लोकतंत्र में जनता की भागीदारी केवल 5 साल में एक बार वोट देने तक सीमित नहीं होनी चाहिए, बल्कि जनता के पास अपने प्रतिनिधियों पर निरंतर नियंत्रण का अधिकार होना चाहिए।</p>
-        </div>
-        <div class="section-card">
-            <div class="section-title">⚖️ मुख्य विचार एवं कानून समर्थन</div>
-            <div class="policy-item">
-                <strong>राइट टू रिकॉल (वोट वापसी कानून)</strong>
-                <span>जनप्रतिनिधि या अधिकारी यदि जनहित के विरुद्ध कार्य करें, तो नागरिकों को अपना वोट वापस लेकर उन्हें पदमुक्त करने का अधिकार होना चाहिए।</span>
-            </div>
-            <div class="policy-item">
-                <strong>पारदर्शी कानून व्यवस्था व पासबुक प्रणाली</strong>
-                <span>प्रत्येक नागरिक को सरकारी नीतियों और फैसलों पर प्रत्यक्ष मत दर्ज करने व निगरानी का कानूनी अधिकार प्राप्त हो।</span>
-            </div>
-            <div class="policy-item">
-                <strong>जवाबदेह न्याय व्यवस्था</strong>
-                <span>आम जनता के लिए त्वरित, निष्पक्ष और सुलभ न्याय प्रणाली की स्थापना।</span>
-            </div>
-        </div>
-        <div class="section-card">
-            <div class="section-title">💻 तकनीकी कौशल (Skills)</div>
-            <div class="skills-grid">
-                <div class="skill-box"><span>Linux / Termux</span>टर्मिनल व सर्वर प्रबंधन</div>
-                <div class="skill-box"><span>Python</span>स्क्रिप्टिंग व ऑटोमेशन</div>
-                <div class="skill-box"><span>HTML & CSS</span>वेब डिजाइनिंग</div>
-                <div class="skill-box"><span>Git & GitHub</span>प्रोजेक्ट होस्टिंग</div>
-            </div>
-        </div>
-        <div class="section-card">
-            <div class="section-title">📞 संपर्क एवं संवाद</div>
-            <p class="desc">विचारों के आदान-प्रदान या सहयोग के लिए सीधे जुड़ सकते हैं:</p>
-            <a href="https://wa.me/" class="contact-btn">व्हाट्सएप पर संदेश भेजें</a>
-        </div>
-        <footer>© 2026 अभिराज • सभी अधिकार सुरक्षित</footer>
+
+    <!-- HUD Status Bar -->
+    <div class="hud-status-bar">
+        <div><span class="status-pulse"></span>SYSTEM STATUS: ONLINE</div>
+        <div>JARVIS-HUD // V4.1</div>
     </div>
+
+    <div class="container">
+
+        <!-- 22 Indian Languages Neural Hub -->
+        <div class="lang-module">
+            <div class="lang-title">🌐 22 INDIAN LANGUAGES // NEURAL TRANSLATOR</div>
+            <div id="google_translate_element"></div>
+        </div>
+
+        <!-- Profile Core HUD -->
+        <div class="hero-panel">
+            <div class="arc-core">
+                <div class="arc-core-inner">अ</div>
+            </div>
+            <h1>अभिराज कुमार विश्वकर्मा</h1>
+            <div class="codename">Operative: The Truth Seeker</div>
+
+            <div class="badge-grid">
+                <span class="hud-badge motto-badge">अशक्यस्य प्रेक्षाम् कुरु</span>
+                <span class="hud-badge">राष्ट्र सर्वोपरि • भारत प्रथम</span>
+                <span class="hud-badge">मालिक प्रजा नहीं बनता</span>
+            </div>
+        </div>
+
+        <!-- Academic & Focus Blueprint -->
+        <div class="hud-panel">
+            <div class="panel-header">◈ PROFILE TELEMETRY & FOCUS</div>
+            <div class="info-row">
+                <span class="info-label">शैक्षणिक पृष्ठभूमि (Academic Grounding)</span>
+                12th Pass [JAC Board]
+            </div>
+            <div class="info-row">
+                <span class="info-label">वर्तमान अध्ययन (Current Focus Domain)</span>
+                मानव व्यवहार व सामाजिक व्यवस्था का अध्ययन<br>
+                <em style="color: var(--neon-cyan); font-size: 12px;">(Human Dynamics & Social Systems Observer)</em>
+            </div>
+        </div>
+
+        <!-- Analytical Matrix -->
+        <div class="hud-panel">
+            <div class="panel-header">◈ TACTICAL SKILLS & REASONING MATRIX</div>
+            <div class="matrix-grid">
+                <div class="matrix-cell">
+                    <strong>पार्श्व सोच व समस्या समाधान</strong>
+                    Lateral Thinking & Tactical Problem Solving
+                </div>
+                <div class="matrix-cell">
+                    <strong>शासन व वैधानिक विश्लेषण</strong>
+                    Governance & Constitutional Structural Analysis
+                </div>
+                <div class="matrix-cell">
+                    <strong>व्यावहारिक अंकगणित</strong>
+                    Practical Calculations & Logical Reasoning
+                </div>
+                <div class="matrix-cell">
+                    <strong>कार्यालय अनुप्रयोग</strong>
+                    MS Office Suite [Word & Excel Practical Management]
+                </div>
+            </div>
+        </div>
+
+        <!-- The Classified Vault / Riddle -->
+        <div class="hud-panel">
+            <div class="panel-header">🔒 CLASSIFIED INQUIRY: PROTOCOL-ZERO</div>
+            <div class="vault-box">
+                <p style="font-size: 11px; color: var(--neon-cyan); letter-spacing: 1px;">// INTELLECTUAL GATEWAY</p>
+                <div class="riddle-text">
+                    "जो मुकुट पहनाता है, वही जंजीरों में क्यों बंधता है?<br>
+                    जब निर्णय देने वाला स्वयं मूक दर्शक बन जाए, तो सत्ता किसके हाथ में होती है—हस्ताक्षर करने वाले के, या मुहर लगाने वाले के?<br>
+                    वह कौन सी अज्ञात व्यवस्था है जो 'मालिक' और 'सेवक' की सीमाओं को सही स्थान पर स्थापित करती है?"
+                </div>
+                <button class="decrypt-btn" onclick="toggleVault()">[ डिक्रिप्ट करें // DECRYPT ARCHIVE ]</button>
+
+                <div class="classified-content" id="vaultContent">
+                    <p style="color: var(--neon-cyan); font-size: 12px; margin-bottom: 12px; font-weight: bold;">
+                        [ARCHIVE ACCESS GRANTED] ➔ 35 वैधानिक गजट ड्राफ्ट्स (राहुल चिमनभाई मेहता विजन):
+                    </p>
+
+                    <div class="draft-item">
+                        <strong>1. वोट वापसी पासबुक (VVP) एवं सकारात्मक रिकॉल</strong>
+                        पटवारी कार्यालय व SMS द्वारा नागरिक स्वीकृति; केवल कुर्सी खाली करने का नकारात्मक कानून नहीं, बल्कि नया योग्य प्रतिनिधि चुनने का सकारात्मक अधिकार[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)।
+                    </div>
+
+                    <div class="draft-item">
+                        <strong>2. हॉर्स-ट्रेडिंग (विधायक नीलामी) पर पूर्ण वीटो</strong>
+                        जनमत-आधारित मुख्यमंत्री व अधिकारी चयन। विधायक जनता के मत की सौदेबाजी नहीं कर सकेंगे[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)।
+                    </div>
+
+                    <div class="draft-item">
+                        <strong>3. नागरिक जूरी कोर्ट प्रणाली (Jury Trial System)</strong>
+                        अदालतों में मुकदमों के दशकों तक लटकने का अंत। आम नागरिकों की रैंडम जूरी द्वारा त्वरित व पारदर्शी न्याय व्यवस्था[span_8](start_span)[span_8](end_span)।
+                    </div>
+
+                    <div class="draft-item">
+                        <strong>4. स्वदेशी सुरक्षा, WOIC व आर्थिक संप्रभुता</strong>
+                        GST समाप्ति, रिक्त भूमि कर (Unused Land Tax) तथा संवेदनशील क्षेत्रों में बहुराष्ट्रीय कंपनियों (FDI) के एकाधिकार व डॉलर पुनर्भरण संकट से देश की सुरक्षा[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)।
+                    </div>
+
+                    <div class="draft-item">
+                        <strong>5. खनिज मुनाफा बंटवारा व प्रत्यक्ष शपथपत्र (TCP)</strong>
+                        खनिज रॉयल्टी का 65% हिस्सा प्रत्येक भारतीय नागरिक को समान रूप से और 35% सेना को, जिससे राष्ट्रीय सुरक्षा व आर्थिक मजबूती सुनिश्चित हो[span_14](start_span)[span_14](end_span)।
+                    </div>
+
+                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;">
+                        *सम्पूर्ण 35 गजट ड्राफ्ट्स एवं समाधान संग्रह: Right to Recall Party (RRPIndia.in)[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secure Comms Portals -->
+        <div class="hud-panel">
+            <div class="panel-header">📡 SECURE COMMS // VERIFIED PORTALS</div>
+            <div class="comms-grid">
+                <a href="https://x.com/Abhiraj_RRP" target="_blank" class="comm-portal-btn x-btn">
+                    <span>X (TWITTER) ➔ @Abhiraj_RRP</span>
+                </a>
+                <a href="https://www.instagram.com/avirajkumar893?obrf=MjQwcTBuYTNpbXZk" target="_blank" class="comm-portal-btn insta-btn">
+                    <span>INSTAGRAM ➔ @avirajkumar893</span>
+                </a>
+                <a href="https://www.facebook.com/share/1CKckuvSM2/" target="_blank" class="comm-portal-btn fb-btn">
+                    <span>FACEBOOK PORTAL ➔ CONNECT</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            // SYSTEM ENCRYPTED // ARCHIVE 2026<br>
+            राष्ट्र सर्वोपरि • अशक्यस्य प्रेक्षाम् कुरु
+        </footer>
+
+    </div>
+
+    <!-- Interactive Vault Script -->
+    <script>
+        function toggleVault() {
+            var vault = document.getElementById("vaultContent");
+            if (vault.style.display === "block") {
+                vault.style.display = "none";
+            } else {
+                vault.style.display = "block";
+            }
+        }
+    </script>
+
+    <!-- Google 22 Indian Languages Translation Engine -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'hi',
+                includedLanguages: 'hi,en,bn,te,ta,mr,gu,kn,ml,pa,or,as,ur,ne,sd,sa,mai,ks,doi,kok,brx,mni',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
-</html>
+    </html>
+    
