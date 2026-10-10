@@ -3,45 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अभिराज कुमार विश्वकर्मा | आधिकारिक परिचय</title>
+    <title>Abhiraj Kumar Vishwakarma | Strategic Analyst</title>
     <style>
         :root {
             --neon-cyan: #00f3ff;
             --neon-blue: #0ea5e9;
             --hud-bg: #030712;
             --panel-bg: rgba(10, 25, 47, 0.85);
-            --panel-border: rgba(0, 243, 255, 0.4);
-            --text-glow: rgba(0, 243, 255, 0.7);
+            --panel-border: rgba(0, 243, 255, 0.35);
             --text-primary: #e0f2fe;
             --text-muted: #94a3b8;
-            --alert-glow: #38bdf8;
-            --success-green: #10b981;
+            --success: #10b981;
+            --danger: #ef4444;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', 'Segoe UI', monospace, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--hud-bg);
             background-image: 
-                radial-gradient(circle at 50% 15%, rgba(14, 165, 233, 0.18) 0%, transparent 65%),
-                linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
+                radial-gradient(circle at 50% 10%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
             background-size: 100% 100%, 25px 25px, 25px 25px;
             color: var(--text-primary);
             line-height: 1.6;
-            padding-bottom: 70px;
+            padding-bottom: 80px;
         }
 
         .hud-status-bar {
-            background: rgba(3, 7, 18, 0.96);
+            background: rgba(3, 7, 18, 0.98);
             border-bottom: 1px solid var(--panel-border);
-            padding: 10px 16px;
+            padding: 12px 16px;
             font-size: 11px;
             display: flex;
             justify-content: space-between;
@@ -51,23 +50,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
         }
 
-        .status-pulse {
+        .status-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
             background: var(--neon-cyan);
             border-radius: 50%;
             margin-right: 6px;
-            box-shadow: 0 0 10px var(--neon-cyan);
-            animation: pulse 1.4s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.2); }
+            box-shadow: 0 0 8px var(--neon-cyan);
         }
 
         .container {
@@ -76,144 +68,111 @@
             padding: 0 16px;
         }
 
-        .lang-module {
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
-        }
-        .lang-title {
-            font-size: 11px;
-            color: var(--neon-cyan);
-            margin-bottom: 6px;
-            letter-spacing: 1.5px;
-            font-weight: bold;
-        }
-
-        /* Hero Avatar HUD */
+        /* Hero Card */
         .hero-panel {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 16px;
-            padding: 26px 16px;
+            padding: 24px 16px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.18);
             margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .arc-core-wrapper {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 16px;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
         }
 
         .arc-core {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 16px;
             border-radius: 50%;
             border: 2px dashed var(--neon-cyan);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4), inset 0 0 15px rgba(0, 243, 255, 0.25);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .shockwave {
-            position: absolute;
-            top: 0; left: 0; width: 100px; height: 100px;
-            border-radius: 50%;
-            border: 2px solid var(--neon-cyan);
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes waveAnimation {
-            0% { transform: scale(1); opacity: 1; border-color: var(--neon-cyan); }
-            100% { transform: scale(2.2); opacity: 0; border-color: var(--neon-blue); }
+        .arc-core:active {
+            transform: scale(0.92);
+            box-shadow: 0 0 30px var(--neon-cyan);
         }
 
         .arc-core-inner {
-            width: 72px;
-            height: 72px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,243,255,0.45) 0%, rgba(14,165,233,0.15) 75%);
+            background: radial-gradient(circle, rgba(0,243,255,0.4) 0%, rgba(14,165,233,0.1) 75%);
             border: 1px solid var(--neon-cyan);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             color: #ffffff;
-            text-shadow: 0 0 12px var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
         }
 
         h1 {
             font-size: 22px;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px var(--text-glow);
+            letter-spacing: 1.5px;
             margin-bottom: 4px;
         }
 
         .codename {
             color: var(--neon-cyan);
             font-size: 12px;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 14px;
             text-transform: uppercase;
         }
 
-        /* Interactive Badges */
         .badge-grid {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             gap: 8px;
-            margin-top: 10px;
+            margin-top: 14px;
         }
 
-        .hud-badge-btn {
-            background: rgba(0, 243, 255, 0.08);
+        .toggle-btn {
+            background: rgba(3, 7, 18, 0.7);
             border: 1px solid var(--panel-border);
-            color: var(--neon-cyan);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
+            color: var(--text-primary);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: left;
             cursor: pointer;
             transition: all 0.25s ease;
-            outline: none;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .hud-badge-btn:hover, .hud-badge-btn:active {
-            background: var(--neon-cyan);
-            color: #030712;
-            box-shadow: 0 0 15px var(--neon-cyan);
-        }
-
-        .motto-badge {
-            border-color: var(--alert-glow);
-            font-weight: bold;
+        .toggle-btn:active {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
         }
 
-        /* HUD Panels */
+        .expand-content {
+            display: none;
+            background: rgba(2, 6, 23, 0.9);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            text-align: left;
+        }
+
         .hud-panel {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 12px;
             padding: 18px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         .panel-header {
@@ -240,244 +199,73 @@
             text-transform: uppercase;
         }
 
-        /* Interactive Matrix Cards */
-        .matrix-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .matrix-btn {
+        /* 4 Quiz Options */
+        .quiz-option {
             background: rgba(3, 7, 18, 0.7);
             border: 1px solid rgba(0, 243, 255, 0.25);
-            padding: 12px 10px;
-            border-radius: 6px;
-            font-size: 12px;
             color: var(--text-primary);
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .matrix-btn:hover, .matrix-btn:active {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.25);
-            transform: translateY(-2px);
-        }
-        .matrix-btn strong {
-            color: var(--neon-cyan);
-            display: block;
-            margin-bottom: 4px;
-            font-size: 12px;
-        }
-
-        /* Simple Riddle & Multiple Choice Vault */
-        .vault-box {
-            background: rgba(4, 13, 28, 0.9);
-            border: 1px dashed var(--neon-cyan);
+            padding: 12px 14px;
             border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-        }
-        .riddle-text {
             font-size: 13px;
-            color: #ffffff;
-            line-height: 1.7;
-            margin: 12px 0;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 12px;
-            border-left: 3px solid var(--neon-cyan);
-            text-align: left;
-        }
-
-        .riddle-options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 8px;
-            margin-bottom: 14px;
-            text-align: left;
-        }
-        .option-btn {
-            background: rgba(3, 7, 18, 0.8);
-            border: 1px solid rgba(0, 243, 255, 0.3);
-            color: var(--text-primary);
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 12px;
+            margin-bottom: 8px;
             cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .option-btn:hover {
-            border-color: var(--neon-cyan);
-            background: rgba(0, 243, 255, 0.1);
-        }
-        .option-btn.correct {
-            border-color: var(--success-green);
-            background: rgba(16, 185, 129, 0.2);
-            color: #a7f3d0;
-            font-weight: bold;
-        }
-        .option-btn.wrong {
-            border-color: #ef4444;
-            background: rgba(239, 68, 68, 0.2);
-            color: #fca5a5;
-        }
-
-        .classified-content {
-            display: none;
-            margin-top: 16px;
+            width: 100%;
             text-align: left;
-            border-top: 1px solid var(--panel-border);
-            padding-top: 16px;
-            animation: fadeIn 0.4s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .draft-item {
-            background: rgba(3, 7, 18, 0.7);
-            border-left: 3px solid var(--neon-blue);
-            padding: 10px 12px;
-            margin-bottom: 10px;
-            border-radius: 0 6px 6px 0;
-            font-size: 12px;
-        }
-        .draft-item strong {
-            color: #ffffff;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        /* PDF & Research Downloads */
-        .doc-card {
-            background: rgba(3, 7, 18, 0.6);
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-        .doc-info {
-            font-size: 12px;
-            text-align: left;
-        }
-        .doc-info strong {
-            color: #ffffff;
-            display: block;
-            font-size: 12px;
-            margin-bottom: 2px;
-        }
-        .doc-tag {
-            color: var(--neon-cyan);
-            font-size: 11px;
-        }
-        .doc-action-btn {
-            background: rgba(14, 165, 233, 0.15);
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            cursor: pointer;
-            text-decoration: none;
-            white-space: nowrap;
             transition: all 0.2s;
         }
-        .doc-action-btn:hover {
-            background: var(--neon-cyan);
-            color: #030712;
+        .quiz-option:active {
+            border-color: var(--neon-cyan);
         }
-
-        /* Share & Comms Portals */
-        .comms-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-        .comm-portal-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 12px;
+        .quiz-option.correct {
+            border-color: var(--success) !important;
+            background: rgba(16, 185, 129, 0.2) !important;
+            color: #a7f3d0 !important;
             font-weight: bold;
-            letter-spacing: 1px;
-            transition: 0.3s;
         }
-        .x-btn {
-            background: rgba(14, 165, 233, 0.1);
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
-        .insta-btn {
-            background: rgba(236, 72, 153, 0.1);
-            border: 1px solid #f43f5e;
-            color: #f43f5e;
-        }
-        .fb-btn {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid #60a5fa;
-            color: #60a5fa;
-        }
-        .share-btn {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid #10b981;
-            color: #10b981;
-            cursor: pointer;
-            width: 100%;
+        .quiz-option.wrong {
+            border-color: var(--danger) !important;
+            background: rgba(239, 68, 68, 0.2) !important;
+            color: #fca5a5 !important;
         }
 
-        /* Typewriter HUD Modal */
-        .hud-modal {
+        .vault-reveal {
             display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(5px);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            margin-top: 16px;
+            border-top: 1px dashed var(--neon-cyan);
+            padding-top: 16px;
         }
-        .modal-content {
-            background: #091322;
-            border: 1px solid var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 480px;
-            width: 100%;
-            text-align: left;
-        }
-        .modal-header {
-            color: var(--neon-cyan);
+
+        .draft-block {
+            background: rgba(2, 6, 23, 0.8);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 12px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 12px;
             font-size: 13px;
+        }
+        .draft-block strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .comms-link {
+            display: block;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
             font-weight: bold;
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--panel-border);
-            padding-bottom: 6px;
-        }
-        .modal-body {
-            font-size: 13px;
-            color: #cbd5e1;
-            line-height: 1.7;
-            min-height: 70px;
-            margin-bottom: 16px;
-        }
-        .modal-close-btn {
-            background: transparent;
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 6px 16px;
             font-size: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border: 1px solid var(--panel-border);
+            color: var(--text-primary);
+            background: rgba(3, 7, 18, 0.6);
+        }
+        .comms-link:active {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
         }
 
         footer {
@@ -485,55 +273,76 @@
             font-size: 11px;
             color: var(--text-muted);
             letter-spacing: 1px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
 
-    <!-- HUD Status -->
+    <!-- Status Bar -->
     <div class="hud-status-bar">
-        <div><span class="status-pulse"></span>SYSTEM STATUS: ONLINE</div>
-        <div id="liveClock">00:00:00 UTC</div>
-        <div>PROTOCOL CORE // V4.3</div>
+        <div><span class="status-dot"></span>ABHIRAJ PROTOCOL // ACTIVE</div>
+        <div>BHARAT FIRST</div>
     </div>
 
     <div class="container">
 
-        <!-- 22 Languages Hub -->
-        <div class="lang-module">
-            <div class="lang-title">🌐 22 INDIAN LANGUAGES // NEURAL TRANSLATOR</div>
+        <!-- Neural Translator -->
+        <div class="hud-panel" style="padding: 12px; text-align: center;">
+            <div style="font-size: 11px; color: var(--neon-cyan); margin-bottom: 6px; letter-spacing: 1px;">
+                🌐 22 BHARTIYA BHASHA // NEURAL TRANSLATE
+            </div>
             <div id="google_translate_element"></div>
         </div>
 
-        <!-- Profile Core HUD -->
+        <!-- Hero Section -->
         <div class="hero-panel">
-            <div class="arc-core-wrapper">
-                <div class="shockwave" id="shockwave"></div>
-                <div class="arc-core" onclick="triggerCorePulse()">
-                    <div class="arc-core-inner">अ</div>
-                </div>
+            <div class="arc-core" onclick="coreAlert()">
+                <div class="arc-core-inner">अ</div>
             </div>
             <h1>अभिराज कुमार विश्वकर्मा</h1>
-            <div class="codename">The Truth Seeker</div>
+            <div class="codename">The Truth Seeker // रणनीतिक अन्वेषक</div>
 
-            <!-- Clickable Badges -->
+            <!-- Click to Expand Badges -->
             <div class="badge-grid">
-                <button class="hud-badge-btn motto-badge" onclick="typewriterModal('आदर्श वाक्य : अशक्यस्य प्रेक्षाम् कुरु', 'अर्थ: असंभव की खोज करो (Demand the Impossible)। जो मार्ग साधारण व्यक्ति छोड़ देते हैं, तार्किक विवेक व सत्यनिष्ठा से उसी असाध्य चुनौती का समाधान निकालना हमारा मूल संकल्प है।')">
-                    अशक्यस्य प्रेक्षाम् कुरु ⓘ
-                </button>
-                <button class="hud-badge-btn" onclick="typewriterModal('राष्ट्रीय विजन : राष्ट्र सर्वोपरि', 'सर्वोपरि भारत प्रथम। व्यक्तिगत स्वार्थ, दलगत राजनीति या संकीर्ण सीमाओं से ऊपर केवल एक निष्ठा—भारत की संप्रभुता, अखंडता और प्रत्येक नागरिक का स्वाभिमान।')">
-                    राष्ट्र सर्वोपरि • भारत प्रथम ⓘ
-                </button>
-                <button class="hud-badge-btn" onclick="typewriterModal('मूल सिद्धांत : सत्यमेव जयते', 'सत्य की ही विजय होती है। संपूर्ण स्वावलंबन और व्यवस्था परिवर्तन केवल तब संभव है जब नागरिक जागरूक होकर प्रशासनिक व वैधानिक सुधारों की बागडोर अपने हाथों में लें।')">
-                    सत्यमेव जयते • पूर्ण स्वावलंबन ⓘ
-                </button>
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('b1', this)">
+                        <span>◈ अशक्यस्य प्रेक्षाम् कुरु</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="b1" class="expand-content">
+                        <strong>अर्थ: असंभव की मांग व खोज करो (Demand the Impossible)।</strong><br>
+                        जो कार्य सामान्य लोग कठिन समझकर छोड़ देते हैं, बौद्धिक अध्ययन, सटीक कानून व व्यवस्था परिवर्तन के माध्यम से उसी असंभव लक्ष्य को प्राप्त करना हमारा मार्ग है।
+                    </div>
+                </div>
+
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('b2', this)">
+                        <span>◈ राष्ट्र सर्वोपरि • भारत प्रथम</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="b2" class="expand-content">
+                        <strong>राष्ट्र की संप्रभुता सर्वोपरि:</strong><br>
+                        किसी भी पार्टी, नेता या विदेशी दबाव से ऊपर केवल भारत देश और उसके नागरिकों का स्वाभिमान है। आर्थिक और न्यायिक रूप से भारत को पूरी तरह आत्मनिर्भर बनाना ही मुख्य संकल्प है।
+                    </div>
+                </div>
+
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('b3', this)">
+                        <span>◈ सत्यमेव जयते • नागरिक संप्रभुता</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="b3" class="expand-content">
+                        <strong>लोकतंत्र का मूल सत्य:</strong><br>
+                        जनता सिर्फ 5 साल में एक बार वोट देने वाली 'प्रजा' नहीं है, बल्कि देश के संसाधनों और व्यवस्था की स्थायी 'मालिक' है।
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Profile Telemetry -->
+        <!-- Telemetry & Focus -->
         <div class="hud-panel">
-            <div class="panel-header">◈ PROFILE TELEMETRY & FOCUS</div>
+            <div class="panel-header">◈ PROFILE TELEMETRY & FOCUS DOMAIN</div>
             <div class="info-row">
                 <span class="info-label">शैक्षणिक पृष्ठभूमि (Academic Grounding)</span>
                 12th Pass [JAC Board]
@@ -545,39 +354,155 @@
             </div>
         </div>
 
-        <!-- Interactive Skills Matrix -->
+        <!-- Skills Section with Toggle -->
         <div class="hud-panel">
-            <div class="panel-header">◈ TACTICAL SKILLS & REASONING (टैप करें)</div>
-            <div class="matrix-grid">
-                <div class="matrix-btn" onclick="typewriterModal('पार्श्व सोच व समस्या समाधान', 'सीधी लकीर से हटकर जटिल समस्याओं के अदृश्य कोणों को पहचानना। पारंपरिक प्रशासनिक व सामाजिक गतिरोधों का गैर-पारंपरिक और तार्किक समाधान निकालना।')">
-                    <strong>पार्श्व सोच ➔</strong>
-                    Lateral Thinking & Tactical Problem Solving
+            <div class="panel-header">◈ TACTICAL SKILLS & ANALYSIS (टैप करके पढ़ें)</div>
+            
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('sk1', this)">
+                        <span>1. पार्श्व सोच व समस्या समाधान (Lateral Thinking)</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="sk1" class="expand-content">
+                        पारंपरिक प्रशासनिक तरीकों से हटकर सोचना। जटिल राजनीतिक और सामाजिक समस्याओं को सीधे प्रशासनिक कानूनों के बदलाव से सुलझाने का तार्किक दृष्टिकोण।
+                    </div>
                 </div>
-                <div class="matrix-btn" onclick="typewriterModal('शासन व वैधानिक विश्लेषण', 'संवैधानिक प्रावधानों, प्रशासनिक प्रक्रियाओं, गजट अधिसूचनाओं तथा जनहित कानूनों का गहन तुलनात्मक व व्यावहारिक अध्ययन।')">
-                    <strong>वैधानिक विश्लेषण ➔</strong>
-                    Governance & Constitutional Analysis
+
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('sk2', this)">
+                        <span>2. शासन व वैधानिक विश्लेषण (Constitutional Analysis)</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="sk2" class="expand-content">
+                        प्रशासनिक प्रक्रियाओं, सरकारी आदेशों, अदालती नियमों और प्रस्तावित जनहित गजट ड्राफ्ट्स का गहराई से तुलनात्मक विश्लेषण।
+                    </div>
                 </div>
-                <div class="matrix-btn" onclick="typewriterModal('व्यावहारिक अंकगणित व तार्किकता', 'जटिल सामाजिक-आर्थिक आंकड़ों, कर प्रणाली (GST/Tax), मुद्रा प्रवाह एवं तार्किक गणनाओं का यथार्थवादी विश्लेषण।')">
-                    <strong>व्यावहारिक अंकगणित ➔</strong>
-                    Practical Calculations & Reasoning
+
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('sk3', this)">
+                        <span>3. व्यावहारिक अंकगणित व वित्तीय तर्क (Practical Reasoning)</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="sk3" class="expand-content">
+                        टैक्स सिस्टम (GST), डॉलर पुनर्भरण (Repatriation संकट), खनिज मुनाफा बंटवारा और देश के राजस्व आंकड़ों का व्यावहारिक गणितीय विश्लेषण।
+                    </div>
                 </div>
-                <div class="matrix-btn" onclick="typewriterModal('कार्यालय अनुप्रयोग प्रबंधन', 'माइक्रोसॉफ्ट वर्ड और एक्सेल का व्यावहारिक उपयोग—ड्राफ्टिंग, रिकॉर्ड संकलन, डेटा शीट प्रबंधन एवं सुव्यवस्थित रिपोर्टिंग।')">
-                    <strong>एमएस ऑफिस अनुप्रयोग ➔</strong>
-                    MS Office Suite [Word & Excel Practical Management]
+
+                <div>
+                    <button class="toggle-btn" onclick="toggleSec('sk4', this)">
+                        <span>4. कार्यालय अनुप्रयोग प्रबंधन (MS Word & Excel)</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div id="sk4" class="expand-content">
+                        माइक्रोसॉफ्ट वर्ड और एक्सेल का व्यावहारिक ज्ञान—ड्राफ्टिंग, रिकॉर्ड संकलन, डेटा शीट मैनेजमेंट और सिस्टेमेटिक डॉक्यूमेंटेशन।
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Simple Interactive Riddle / Vault -->
+        <!-- Interactive 4-Option Quiz Vault -->
         <div class="hud-panel">
             <div class="panel-header">🔒 INTELLECTUAL GATEWAY: SYSTEM CIPHER</div>
-            <div class="vault-box">
-                <p style="font-size: 11px; color: var(--neon-cyan); letter-spacing: 1px;">// तार्किक प्रश्न (सही उत्तर चुनकर आर्काइव अनलॉक करें)</p>
-                <div class="riddle-text">
-                    "लोकतंत्र में यदि कोई चुना हुआ जनप्रतिनिधि जनहित और वादों के विपरीत कार्य करने लगे, तो उसे बदलने की अंतिम शक्ति किसके हाथ में होनी चाहिए?"
+            
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.7;">
+                <strong>तार्किक प्रश्न:</strong><br>
+                "लोकतंत्र में यदि कोई चुना हुआ जनप्रतिनिधि या अधिकारी जनहित के विरुद्ध कार्य करने लगे, तो उसे पद से बदलने की अंतिम शक्ति किसके हाथ में होनी चाहिए?"
+            </p>
+
+            <button class="quiz-option" onclick="evalQuiz(this, false)">
+                A. केवल 5 वर्ष बाद राजनीतिक पार्टी की मर्जी पर
+            </button>
+            <button class="quiz-option" onclick="evalQuiz(this, false)">
+                B. विदेशी सलाहकारों और बहुराष्ट्रीय संस्थाओं पर
+            </button>
+            <button class="quiz-option" onclick="evalQuiz(this, true)">
+                C. सीधे नागरिकों के हाथ में (वोट वापसी / रिकॉल द्वारा)
+            </button>
+            <button class="quiz-option" onclick="evalQuiz(this, false)">
+                D. केवल विभागीय उच्च अधिकारियों के हाथ में
+            </button>
+
+            <!-- Revealed Content -->
+            <div class="vault-reveal" id="vaultRevealed">
+                <div style="color: var(--neon-cyan); font-size: 13px; font-weight: bold; margin-bottom: 12px;">
+                    ✓ [ACCESS GRANTED] ➔ 35 वैधानिक गजट ड्राफ्ट्स (राहुल चिमनभाई मेहता विजन):
                 </div>
 
-                <div class="riddle-options">
-                    <button class="option-btn" onclick="checkAnswer(this, false)">A. केवल 5 वर्ष बाद राजनीतिक पार्टी की मर्जी पर</button>
-                    <button class="option-btn" onclick="checkAnswer(this, false)">B. बहुराष्ट्रीय कंपनियों और विदेशी सलाहकारों पर</button>
-                    <butt
+                <div class="draft-block">
+                    <strong>1. वोट वापसी पासबुक (VVP) एवं सकारात्मक रिकॉल</strong>
+                    पटवारी कार्यालय व SMS द्वारा नागरिक स्वीकृति दर्ज करने की पारदर्शी प्रणाली। यह सिर्फ नकारात्मक कुर्सी खाली करने वाला कानून नहीं, बल्कि नया योग्य प्रतिनिधि चुनने की सकारात्मक व्यवस्था है।
+                </div>
+
+                <div class="draft-block">
+                    <strong>2. हॉर्स-ट्रेडिंग (विधायक नीलामी) पर वीटो</strong>
+                    विधायकों की खरीद-फरोख्त का अंत। नागरिक स्वयं तय करेंगे कि मुख्यमंत्री पद पर कौन बैठेगा, जिससे विधायकों की सौदेबाजी बंद होगी।
+                </div>
+
+                <div class="draft-block">
+                    <strong>3. नागरिक जूरी कोर्ट प्रणाली (Jury Trial System)</strong>
+                    अदालतों में दशकों तक केस लटकने की बीमारी का खात्मा। समाज के रैंडम नागरिकों की जूरी द्वारा निष्पक्ष और तुरंत न्याय।
+                </div>
+
+                <div class="draft-block">
+                    <strong>4. स्वदेशी सुरक्षा (WOIC) व FDI नियंत्रण</strong>
+                    GST रद्द कर रिक्त भूमि कर लागू करना तथा संवेदनशील क्षेत्रों (रक्षा, खनिज, मीडिया) में बहुराष्ट्रीय कंपनियों के एकाधिकार को समाप्त करना।
+                </div>
+
+                <div class="draft-block">
+                    <strong>5. खनिज मुनाफा बंटवारा व जनमत संग्रह (TCP)</strong>
+                    खनिज रॉयल्टी का 65% हिस्सा प्रत्येक भारतीय नागरिक को समान रूप से और 35% सेना के बजट में आवंटित करना।
+                </div>
+
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+                    *विस्तृत गजट ड्राफ्ट्स संदर्भ: Right to Recall Party (RRPIndia.in)
+                </p>
+            </div>
+        </div>
+
+        <!-- In-Depth Research Directives (Long Section) -->
+        <div class="hud-panel">
+            <div class="panel-header">📂 STRATEGIC RESEARCH ARCHIVES (अध्ययन मॉड्यूल)</div>
+
+            <div>
+                <button class="toggle-btn" onclick="toggleSec('res1', this)">
+                    <span>📘 वोट वापसी पासबुक बनाम नकारात्मक रिकॉल</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div id="res1" class="expand-content">
+                    नकारात्मक रिकॉल से केवल कुर्सी खाली होती है और अस्थिरता आती है। वोट वापसी पासबुक में 'सकारात्मक रिकॉल' है—जब तक 51% मतदाता किसी नए योग्य उम्मीदवार को स्वीकृति नहीं देते, तब तक पुराना प्रतिनिधि पद पर बना रहता है। इससे कुर्सी कभी खाली नहीं रहती और प्रशासन स्थिर रहता है।
+                </div>
+            </div>
+            <div style="height: 8px;"></div>
+
+            <div>
+                <button class="toggle-btn" onclick="toggleSec('res2', this)">
+                    <span>📘 FDI और डॉलर पुनर्भरण संकट (Repatriation Crisis)</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div id="res2" class="expand-content">
+                    विदेशी कंपनियां भारत में जितना मुनाफा रुपये में कमाती हैं, सरकार उन्हें डॉलर में वापस देने के लिए बाध्य होती है। इसे डॉलर पुनर्भरण संकट कहते हैं। इसका स्थायी समाधान स्वदेशी उत्पादन और वोइक (WOIC - Wholly Owned Indian Citizens) कंपनियों को संरक्षण देना है।
+                </div>
+            </div>
+            <div style="height: 8px;"></div>
+
+            <div>
+                <button class="toggle-btn" onclick="toggleSec('res3', this)">
+                    <span>📘 पोस्टकार्ड आंदोलन : विकेंद्रीकृत शांतिपूर्ण जनशक्ति</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div id="res3" class="expand-content">
+                    PM/CM को 50 पैसे का पोस्टकार्ड भेजना सबसे निरापद और कानूनी मास-मूवमेंट है। जब 1 करोड़ नागरिक एक साथ डाकघरों में पोस्टकार्ड डालते हैं, तो बिना किसी नेता या मीडिया के सरकार जनहितैषी कानूनों को गजट में छापने के लिए बाध्य होती है।
+                </div>
+            </div>
+        </div>
+
+        <!-- Verified Portals -->
+        <div class="hud-panel">
+            <div class="panel-header">📡 VERIFIED COMMS & CONNECT</div>
+            
+            <a href="https://x.com/Abhiraj_RRP" target="_blank" class="comms-link" style="border-color: #38bdf8; color: #38bdf8;">
+                X (TWITTER) ➔ @Abhiraj_RRP
+            </a>
+            
+            <a href="https://www.instagram.com
