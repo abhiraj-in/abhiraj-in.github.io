@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhiraj Kumar Vishwakarma | Strategic Analyst</title>
+    <title>Abhiraj Kumar Vishwakarma | The Truth Seeker</title>
     <style>
         :root {
             --neon-cyan: #00f3ff;
@@ -126,14 +126,14 @@
             text-transform: uppercase;
         }
 
-        .badge-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 14px;
+        /* Details / Summary Accordion - 100% Reliable */
+        details {
+            margin-bottom: 8px;
+            width: 100%;
         }
 
-        .toggle-btn {
+        summary {
+            list-style: none;
             background: rgba(3, 7, 18, 0.7);
             border: 1px solid var(--panel-border);
             color: var(--text-primary);
@@ -142,21 +142,31 @@
             font-size: 13px;
             text-align: left;
             cursor: pointer;
-            transition: all 0.25s ease;
-            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.2s ease;
         }
-        .toggle-btn:active {
-            border-color: var(--neon-cyan);
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:active {
             background: rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-cyan);
+        }
+
+        details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
         }
 
         .expand-content {
-            display: none;
-            background: rgba(2, 6, 23, 0.9);
-            border: 1px solid rgba(0, 243, 255, 0.2);
+            background: rgba(2, 6, 23, 0.95);
+            border: 1px solid rgba(0, 243, 255, 0.25);
             border-top: none;
             border-radius: 0 0 8px 8px;
             padding: 14px;
@@ -287,9 +297,9 @@
 
     <div class="container">
 
-        <!-- Neural Translator -->
-        <div class="hud-panel" style="padding: 12px; text-align: center;">
-            <div style="font-size: 11px; color: var(--neon-cyan); margin-bottom: 6px; letter-spacing: 1px;">
+        <!-- Neural Translator (Direct Secure Script) -->
+        <div class="hud-panel" style="padding: 14px; text-align: center;">
+            <div style="font-size: 11px; color: var(--neon-cyan); margin-bottom: 8px; letter-spacing: 1px; font-weight: bold;">
                 🌐 22 BHARTIYA BHASHA // NEURAL TRANSLATE
             </div>
             <div id="google_translate_element"></div>
@@ -297,46 +307,46 @@
 
         <!-- Hero Section -->
         <div class="hero-panel">
-            <div class="arc-core" onclick="coreAlert()">
+            <div class="arc-core" onclick="alert('Abhiraj Protocol Active: Sabhi pranaliyan surakshit aur karyarat hain.')">
                 <div class="arc-core-inner">अ</div>
             </div>
             <h1>अभिराज कुमार विश्वकर्मा</h1>
             <div class="codename">The Truth Seeker // रणनीतिक अन्वेषक</div>
 
-            <!-- Click to Expand Badges -->
-            <div class="badge-grid">
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('b1', this)">
+            <!-- Native Tap-to-Open Badges -->
+            <div style="margin-top: 14px;">
+                <details>
+                    <summary>
                         <span>◈ अशक्यस्य प्रेक्षाम् कुरु</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="b1" class="expand-content">
+                        <span>▼</span>
+                    </summary>
+                    <div class="expand-content">
                         <strong>अर्थ: असंभव की मांग व खोज करो (Demand the Impossible)।</strong><br>
-                        जो कार्य सामान्य लोग कठिन समझकर छोड़ देते हैं, बौद्धिक अध्ययन, सटीक कानून व व्यवस्था परिवर्तन के माध्यम से उसी असंभव लक्ष्य को प्राप्त करना हमारा मार्ग है।
+                        Jo karya samanya log kathin samajhkar chhod dete hain, bauddhika adhyayan, satik kanoon aur vyavastha parivartan ke madhyam se usi asadhya chunauti ka samadhan nikalna hamara marg hai.
                     </div>
-                </div>
+                </details>
 
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('b2', this)">
+                <details>
+                    <summary>
                         <span>◈ राष्ट्र सर्वोपरि • भारत प्रथम</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="b2" class="expand-content">
+                        <span>▼</span>
+                    </summary>
+                    <div class="expand-content">
                         <strong>राष्ट्र की संप्रभुता सर्वोपरि:</strong><br>
-                        किसी भी पार्टी, नेता या विदेशी दबाव से ऊपर केवल भारत देश और उसके नागरिकों का स्वाभिमान है। आर्थिक और न्यायिक रूप से भारत को पूरी तरह आत्मनिर्भर बनाना ही मुख्य संकल्प है।
+                        Kisi bhi rajnitik dal ya videshi dabav se upar keval Bharat aur uske nagrikon ka hit hai. Arthik aur nyayik roop se Bharat ko purna aatmanirbhar banana hi mukhy sankalp hai.
                     </div>
-                </div>
+                </details>
 
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('b3', this)">
+                <details>
+                    <summary>
                         <span>◈ सत्यमेव जयते • नागरिक संप्रभुता</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="b3" class="expand-content">
+                        <span>▼</span>
+                    </summary>
+                    <div class="expand-content">
                         <strong>लोकतंत्र का मूल सत्य:</strong><br>
-                        जनता सिर्फ 5 साल में एक बार वोट देने वाली 'प्रजा' नहीं है, बल्कि देश के संसाधनों और व्यवस्था की स्थायी 'मालिक' है।
+                        Janta keval 5 saal mein ek baar vote dene wali praja nahi hai, balki vyavastha aur sansadhanon ki sthayi malik hai.
                     </div>
-                </div>
+                </details>
             </div>
         </div>
 
@@ -354,51 +364,49 @@
             </div>
         </div>
 
-        <!-- Skills Section with Toggle -->
+        <!-- Native Tap-to-Open Skills -->
         <div class="hud-panel">
             <div class="panel-header">◈ TACTICAL SKILLS & ANALYSIS (टैप करके पढ़ें)</div>
             
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('sk1', this)">
-                        <span>1. पार्श्व सोच व समस्या समाधान (Lateral Thinking)</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="sk1" class="expand-content">
-                        पारंपरिक प्रशासनिक तरीकों से हटकर सोचना। जटिल राजनीतिक और सामाजिक समस्याओं को सीधे प्रशासनिक कानूनों के बदलाव से सुलझाने का तार्किक दृष्टिकोण।
-                    </div>
+            <details>
+                <summary>
+                    <span>1. पार्श्व सोच व समस्या समाधान (Lateral Thinking)</span>
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Paramparik prashasnik dharron se hatkar sochna. Jatil rajnitik aur samajik samasyaon ko seedhe kanooni badlavon se suljhane ka tarkik drishtikon.
                 </div>
+            </details>
 
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('sk2', this)">
-                        <span>2. शासन व वैधानिक विश्लेषण (Constitutional Analysis)</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="sk2" class="expand-content">
-                        प्रशासनिक प्रक्रियाओं, सरकारी आदेशों, अदालती नियमों और प्रस्तावित जनहित गजट ड्राफ्ट्स का गहराई से तुलनात्मक विश्लेषण।
-                    </div>
+            <details>
+                <summary>
+                    <span>2. शासन व वैधानिक विश्लेषण (Constitutional Analysis)</span>
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Prashasnik prakriyaon, sarkari aadesho, adalat ke niyamon aur prastavit janhit gazette drafts ka gehan tulnatmak vishleshan[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span).
                 </div>
+            </details>
 
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('sk3', this)">
-                        <span>3. व्यावहारिक अंकगणित व वित्तीय तर्क (Practical Reasoning)</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="sk3" class="expand-content">
-                        टैक्स सिस्टम (GST), डॉलर पुनर्भरण (Repatriation संकट), खनिज मुनाफा बंटवारा और देश के राजस्व आंकड़ों का व्यावहारिक गणितीय विश्लेषण।
-                    </div>
+            <details>
+                <summary>
+                    <span>3. व्यावहारिक अंकगणित व वित्तीय तर्क (Practical Reasoning)</span>
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Tax vyavastha (GST), dollar punarbharan sankat (Repatriation), khanij munafa bantwara aur revenue data ka vyavaharik ganeetiya aakalan[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span).
                 </div>
+            </details>
 
-                <div>
-                    <button class="toggle-btn" onclick="toggleSec('sk4', this)">
-                        <span>4. कार्यालय अनुप्रयोग प्रबंधन (MS Word & Excel)</span>
-                        <span class="icon">▼</span>
-                    </button>
-                    <div id="sk4" class="expand-content">
-                        माइक्रोसॉफ्ट वर्ड और एक्सेल का व्यावहारिक ज्ञान—ड्राफ्टिंग, रिकॉर्ड संकलन, डेटा शीट मैनेजमेंट और सिस्टेमेटिक डॉक्यूमेंटेशन।
-                    </div>
+            <details>
+                <summary>
+                    <span>4. कार्यालय अनुप्रयोग प्रबंधन (MS Word & Excel)</span>
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Microsoft Word aur Excel ka vyavaharik prayog—drafting, record sankalan, data sheet management aur systematic documentation.
                 </div>
-            </div>
+            </details>
         </div>
 
         <!-- Interactive 4-Option Quiz Vault -->
@@ -410,16 +418,16 @@
                 "लोकतंत्र में यदि कोई चुना हुआ जनप्रतिनिधि या अधिकारी जनहित के विरुद्ध कार्य करने लगे, तो उसे पद से बदलने की अंतिम शक्ति किसके हाथ में होनी चाहिए?"
             </p>
 
-            <button class="quiz-option" onclick="evalQuiz(this, false)">
+            <button class="quiz-option" onclick="handleQuizClick(this, false)">
                 A. केवल 5 वर्ष बाद राजनीतिक पार्टी की मर्जी पर
             </button>
-            <button class="quiz-option" onclick="evalQuiz(this, false)">
+            <button class="quiz-option" onclick="handleQuizClick(this, false)">
                 B. विदेशी सलाहकारों और बहुराष्ट्रीय संस्थाओं पर
             </button>
-            <button class="quiz-option" onclick="evalQuiz(this, true)">
+            <button class="quiz-option" onclick="handleQuizClick(this, true)">
                 C. सीधे नागरिकों के हाथ में (वोट वापसी / रिकॉल द्वारा)
             </button>
-            <button class="quiz-option" onclick="evalQuiz(this, false)">
+            <button class="quiz-option" onclick="handleQuizClick(this, false)">
                 D. केवल विभागीय उच्च अधिकारियों के हाथ में
             </button>
 
@@ -431,78 +439,63 @@
 
                 <div class="draft-block">
                     <strong>1. वोट वापसी पासबुक (VVP) एवं सकारात्मक रिकॉल</strong>
-                    पटवारी कार्यालय व SMS द्वारा नागरिक स्वीकृति दर्ज करने की पारदर्शी प्रणाली। यह सिर्फ नकारात्मक कुर्सी खाली करने वाला कानून नहीं, बल्कि नया योग्य प्रतिनिधि चुनने की सकारात्मक व्यवस्था है।
+                    Patwari karyalaya ya SMS dwara nagrik sweekriti darj karne ki prakriya; kewal kursi khali karne ka nakaratmak kanoon nahi, balki naya pratinidhi chunne ka sakaratmak adhikar[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span).
                 </div>
 
                 <div class="draft-block">
                     <strong>2. हॉर्स-ट्रेडिंग (विधायक नीलामी) पर वीटो</strong>
-                    विधायकों की खरीद-फरोख्त का अंत। नागरिक स्वयं तय करेंगे कि मुख्यमंत्री पद पर कौन बैठेगा, जिससे विधायकों की सौदेबाजी बंद होगी।
+                    Chunav jeetne ke baad vidhayakon ki saudebazi ka ant. Nagrik patwari office/SMS se tay karenge ki mukhyamantri kaun banega[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span).
                 </div>
 
                 <div class="draft-block">
                     <strong>3. नागरिक जूरी कोर्ट प्रणाली (Jury Trial System)</strong>
-                    अदालतों में दशकों तक केस लटकने की बीमारी का खात्मा। समाज के रैंडम नागरिकों की जूरी द्वारा निष्पक्ष और तुरंत न्याय।
+                    Adalaton mein dashkon tak case latakne ki samasya ka ant. Aam nagrikon ki random jury dwara nishpaksh aur twarit nyay[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span).
                 </div>
 
                 <div class="draft-block">
                     <strong>4. स्वदेशी सुरक्षा (WOIC) व FDI नियंत्रण</strong>
-                    GST रद्द कर रिक्त भूमि कर लागू करना तथा संवेदनशील क्षेत्रों (रक्षा, खनिज, मीडिया) में बहुराष्ट्रीय कंपनियों के एकाधिकार को समाप्त करना।
+                    GST radd kar rikt bhumi kar lagoo karna aur samvedansheel kshetro (raksha, khanij, sanchar) mein bahurashtriya companiyo ke ekadhikar ko rokna[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span).
                 </div>
 
                 <div class="draft-block">
                     <strong>5. खनिज मुनाफा बंटवारा व जनमत संग्रह (TCP)</strong>
-                    खनिज रॉयल्टी का 65% हिस्सा प्रत्येक भारतीय नागरिक को समान रूप से और 35% सेना के बजट में आवंटित करना।
+                    Khanij royalty ka 65% hissa pratyek nagrik ko barabar aur 35% sena ke budget mein aavantit karna[span_20](start_span)[span_20](end_span).
                 </div>
 
                 <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
-                    *विस्तृत गजट ड्राफ्ट्स संदर्भ: Right to Recall Party (RRPIndia.in)
+                    *संदर्भ: Right to Recall Party (RRPIndia.in)[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span)
                 </p>
             </div>
         </div>
 
-        <!-- In-Depth Research Directives (Long Section) -->
+        <!-- Research Archives -->
         <div class="hud-panel">
             <div class="panel-header">📂 STRATEGIC RESEARCH ARCHIVES (अध्ययन मॉड्यूल)</div>
 
-            <div>
-                <button class="toggle-btn" onclick="toggleSec('res1', this)">
+            <details>
+                <summary>
                     <span>📘 वोट वापसी पासबुक बनाम नकारात्मक रिकॉल</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div id="res1" class="expand-content">
-                    नकारात्मक रिकॉल से केवल कुर्सी खाली होती है और अस्थिरता आती है। वोट वापसी पासबुक में 'सकारात्मक रिकॉल' है—जब तक 51% मतदाता किसी नए योग्य उम्मीदवार को स्वीकृति नहीं देते, तब तक पुराना प्रतिनिधि पद पर बना रहता है। इससे कुर्सी कभी खाली नहीं रहती और प्रशासन स्थिर रहता है।
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Nakaratmak recall se kewal kursi khali hoti hai aur asthirta aati hai[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span). Vote Vapsi Passbook sakaratmak recall par aadharit hai—jab tak bahumat kisi naye ummeedwar ko sweekriti nahi deta, tab tak purana pratinidhi pad par bana rehta hai[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)[span_27](start_span)[span_27](end_span).
                 </div>
-            </div>
-            <div style="height: 8px;"></div>
+            </details>
 
-            <div>
-                <button class="toggle-btn" onclick="toggleSec('res2', this)">
+            <details>
+                <summary>
                     <span>📘 FDI और डॉलर पुनर्भरण संकट (Repatriation Crisis)</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div id="res2" class="expand-content">
-                    विदेशी कंपनियां भारत में जितना मुनाफा रुपये में कमाती हैं, सरकार उन्हें डॉलर में वापस देने के लिए बाध्य होती है। इसे डॉलर पुनर्भरण संकट कहते हैं। इसका स्थायी समाधान स्वदेशी उत्पादन और वोइक (WOIC - Wholly Owned Indian Citizens) कंपनियों को संरक्षण देना है।
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    Bahurashtriya companiyan Bharat mein jitna munafa kamati hain, sarkar unhe dollar mein lautane ke liye badhya hoti hai[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span). Iska samadhan swadeshi nirmaan aur WOIC companiyo ko badhava dena hai[span_30](start_span)[span_30](end_span)[span_31](start_span)[span_31](end_span).
                 </div>
-            </div>
-            <div style="height: 8px;"></div>
+            </details>
 
-            <div>
-                <button class="toggle-btn" onclick="toggleSec('res3', this)">
-                    <span>📘 पोस्टकार्ड आंदोलन : विकेंद्रीकृत शांतिपूर्ण जनशक्ति</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div id="res3" class="expand-content">
-                    PM/CM को 50 पैसे का पोस्टकार्ड भेजना सबसे निरापद और कानूनी मास-मूवमेंट है। जब 1 करोड़ नागरिक एक साथ डाकघरों में पोस्टकार्ड डालते हैं, तो बिना किसी नेता या मीडिया के सरकार जनहितैषी कानूनों को गजट में छापने के लिए बाध्य होती है।
-                </div>
-            </div>
-        </div>
-
-        <!-- Verified Portals -->
-        <div class="hud-panel">
-            <div class="panel-header">📡 VERIFIED COMMS & CONNECT</div>
-            
-            <a href="https://x.com/Abhiraj_RRP" target="_blank" class="comms-link" style="border-color: #38bdf8; color: #38bdf8;">
-                X (TWITTER) ➔ @Abhiraj_RRP
-            </a>
-            
-            <a href="https://www.instagram.com
+            <details>
+                <summary>
+                    <span>📘 पोस्टकार्ड आंदोलन : विकेंद्रीकृत जनशक्ति</span>
+                    <span>▼</span>
+                </summary>
+                <div class="expand-content">
+                    PM/CM ko 50 paise ka postcard bhejna sabse kanooni aur prabhavi mass-movement hai[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span). Jab crodon nagrik seedhe patra bhejte hain, to sarkar jan
